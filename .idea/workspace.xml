@@ -81,7 +81,7 @@
     <findStrings>
       <find>/\</find>
       <find>test:</find>
-      <find>test: /\.</find>
+      <find />
       <find>css</find>
       <find>style-lo</find>
       <find>css-</find>
