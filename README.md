@@ -2,7 +2,7 @@ para que los css modules funcionen necesitamos eyectar la aplicacion con npm run
 
 Revertir el eject
 
-1.- Back up de la carpeta config package.json.
+1.- Back up de la carpeta config y scripts en package.json eliminar la seccion jets.
 2.- Borrar carpeta config
 3.- Correr npm install react-scripts
 4.- Agregar "eject": "react-scripts eject" al package json
