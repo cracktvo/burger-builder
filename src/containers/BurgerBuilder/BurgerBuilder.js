@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect}
 import Aux from '../../hoc/Auxiliary/Auxiliary';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
@@ -157,6 +158,18 @@ class BurgerBuilder extends Component {
                 {burger}
             </Aux>
         );
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+        ings: state.ingredients
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onIngredientAdded: () => dispatch({type: })
     }
 }
 
