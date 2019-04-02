@@ -9,6 +9,7 @@ import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
 import burgerBuilder from './store/reducers/burgerBuilder';
 import orderReducer from './store/reducers/order';
+import './web.config';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
