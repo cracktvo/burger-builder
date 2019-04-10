@@ -16,6 +16,7 @@ const INGREDIENT_PRICES = {
 const burgerBuilder = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.ADD_INGREDIENTS:
+            updateObject();
             return {
                 ...state,
                 ingredients: {
