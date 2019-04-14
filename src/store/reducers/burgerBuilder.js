@@ -21,22 +21,22 @@ const addIngredient = (state, action) => {
         ingredients: updatedIngredients,
         totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName]
     };
-    return updateObject(state,updatedState);
+    return updateObject(state, updatedState);
 };
 
 const removeIngredients = (state, action) => {
     return {
-    ...state,
-            ingredients: {
-        ...state.ingredients,
-                [action.ingredientName]: state.ingredients[action.ingredientName] - 1
+        ...state,
+        ingredients: {
+            ...state.ingredients,
+            [action.ingredientName]: state.ingredients[action.ingredientName] - 1
         },
         totalPrice: state.totalPrice - INGREDIENT_PRICES[action.ingredientName]
     };
 };
 
 const setIngredients = (state, action) => {
-    return{
+    return {
         ...state,
         ingredients: {
             salad: action.ingredients.salad,
@@ -50,7 +50,7 @@ const setIngredients = (state, action) => {
 };
 
 const fetchIngredientsFailed = (state) => {
-    return{
+    return {
         ...state,
         error: true
     };
@@ -58,11 +58,16 @@ const fetchIngredientsFailed = (state) => {
 
 const burgerBuilder = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.ADD_INGREDIENTS: return addIngredient(state, action);
-        case actionTypes.REMOVE_INGREDIENTS: return removeIngredients(state,action);
-        case actionTypes.SET_INGREDIENTS: return setIngredients(state,action);
-        case actionTypes.FETCH_INGREDIENTS_FAILED: return fetchIngredientsFailed(state);
-        default: return state;
+        case actionTypes.ADD_INGREDIENTS:
+            return addIngredient(state, action);
+        case actionTypes.REMOVE_INGREDIENTS:
+            return removeIngredients(state, action);
+        case actionTypes.SET_INGREDIENTS:
+            return setIngredients(state, action);
+        case actionTypes.FETCH_INGREDIENTS_FAILED:
+            return fetchIngredientsFailed(state);
+        default:
+            return state;
     }
 };
 
