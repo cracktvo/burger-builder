@@ -1,16 +1,16 @@
-.Input{
+.Input {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
 }
 
-.Label{
+.Label {
     font-weight: bold;
     display: block;
     margin-bottom: 8px;
 }
 
-.InputElement{
+.InputElement {
     outline: none;
     border: 1px solid #ccc;
     background-color: white;
@@ -26,12 +26,7 @@
     background-color: #ccc;
 }
 
-.Invalid{
+.Invalid {
     border: 1px solid red;
-    background-color: rgba(253, 164, 154, 0.95);
-}
-
-.ValidationError {
-    color: red;
-    margin: 5px 0;
+    background-color: #FDA49A;
 }

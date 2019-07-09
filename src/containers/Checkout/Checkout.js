@@ -1,41 +1,37 @@
-import React, {Component} from 'react';
-import classes from './Checkout.css';
-import {Route, Redirect} from "react-router-dom";
-import {connect} from "react-redux";
+import React, { Component } from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
 import ContactData from './ContactData/ContactData';
-import * as actions from "../../store/actions";
-
+import * as actions from '../../store/actions/index';
 
 class Checkout extends Component {
 
-    componentDidMount() {
-        this.props.onInitPurchase();
+    checkoutCancelledHandler = () => {
+        this.props.history.goBack();
     }
 
-    onCheckoutCancelledHandler = () => {
-        this.props.history.goBack();
-    };
+    checkoutContinuedHandler = () => {
+        this.props.history.replace( '/checkout/contact-data' );
+    }
 
-    onCheckoutContinuedHandler = () => {
-        this.props.history.push('/checkout/contact-data');
-    };
-
-    render() {
-        let summary = <Redirect to="/"/>;
-        if (this.props.ings) {
+    render () {
+        let summary = <Redirect to="/" />
+        if ( this.props.ings ) {
             const purchasedRedirect = this.props.purchased ? <Redirect to="/"/> : null;
-            summary =
+            summary = (
                 <div>
                     {purchasedRedirect}
                     <CheckoutSummary
                         ingredients={this.props.ings}
-                        onCheckoutCancelled={this.onCheckoutCancelledHandler}
-                        onCheckoutContinued={this.onCheckoutContinuedHandler}/>
-                    <Route path={this.props.match.path + '/contact-data'}
-                           component={ContactData}/>
-                </div>;
+                        checkoutCancelled={this.checkoutCancelledHandler}
+                        checkoutContinued={this.checkoutContinuedHandler} />
+                    <Route
+                        path={this.props.match.path + '/contact-data'}
+                        component={ContactData} />
+                </div>
+            );
         }
         return summary;
     }
@@ -48,10 +44,4 @@ const mapStateToProps = state => {
     }
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onInitPurchase: () => dispatch(actions.purchaseInit())
-    };
-};
-
-export default connect(mapStateToProps,mapDispatchToProps)(Checkout);
+export default connect( mapStateToProps )( Checkout );

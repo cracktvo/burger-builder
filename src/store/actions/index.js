@@ -1,8 +1,6 @@
 export {
     addIngredient,
     removeIngredient,
-    setIngredients,
-    fetchIngredientsFailed,
     initIngredients
 } from './burgerBuilder';
 export {
@@ -10,3 +8,6 @@ export {
     purchaseInit,
     fetchOrders
 } from './order';
+export {
+    auth
+} from './auth';
