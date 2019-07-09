@@ -5,9 +5,14 @@ import {connect} from "react-redux";
 
 import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
 import ContactData from './ContactData/ContactData';
+import * as actions from "../../store/actions";
 
 
 class Checkout extends Component {
+
+    componentDidMount() {
+        this.props.onInitPurchase();
+    }
 
     onCheckoutCancelledHandler = () => {
         this.props.history.goBack();
@@ -43,4 +48,10 @@ const mapStateToProps = state => {
     }
 };
 
-export default connect(mapStateToProps)(Checkout);
+const mapDispatchToProps = dispatch => {
+    return {
+        onInitPurchase: () => dispatch(actions.purchaseInit())
+    };
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(Checkout);

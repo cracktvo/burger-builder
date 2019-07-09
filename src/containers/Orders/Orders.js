@@ -4,7 +4,7 @@ import classes from './Orders.css';
 import Order from '../../components/Order/Order';
 import axios from '../../axios-orders';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
-import * as actions from '../../store/actions/index';
+import * as actions from "../../store/actions";
 import Spinner from '../../components/UI/Spinner/Spinner';
 
 class Orders extends Component {
