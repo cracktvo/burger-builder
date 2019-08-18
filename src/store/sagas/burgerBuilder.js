@@ -6,7 +6,7 @@ import * as actions from "../actions";
 export function * initIngredientsSaga(action) {
   try {
     const response = yield axios.get(
-      "https://react-my-burger.firebaseio.com/ingredients.json"
+      "'https://react-my-burger-9db15.firebaseio.com/ingredients.json'"
     );
     yield put(actions.setIngredients(response.data));
   } catch (error) {
