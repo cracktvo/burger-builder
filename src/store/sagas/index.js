@@ -19,7 +19,7 @@ export function* watchAuth() {
   ]);
 }
 
-export function* watchBurgerBuilder() {
+export function * watchBurgerBuilder() {
   yield takeEvery(actionTypes.INIT_INGREDIENTS, initIngredientsSaga);
 }
 
